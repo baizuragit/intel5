@@ -1,6 +1,10 @@
 name: continuous-build
-on: push
-
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+       
 # Testing our first workflow
 
 jobs:
