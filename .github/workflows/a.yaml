@@ -14,8 +14,8 @@ env:
 jobs:
   build: 
     runs-on: ubuntu-latest
+    environment: DEV
     env:
-      environment: dev
       lastname: AW
     steps:
       - name: step1
@@ -23,7 +23,8 @@ jobs:
           greetings: GoodMorning
           name: Siti
         run: |
-          echo "$greetings from $name $lastname, job1 of workflow1 running in environment $environment"
+          echo "$greetings from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment}}"
+          echo "Running on server ${{ vars.servername}} "
           sleep 10
           hostname
       - name: my step2
@@ -42,12 +43,12 @@ jobs:
           echo "final step4 execution done"
   test: 
     runs-on: baizura
-    env:
-      environment: staging
+    environment: TEST
     steps:
       - name: step1
         run: |
-           echo "$greetings from $name $lastname, job1 of workflow1 running in environment $environment"
+           echo "$greetings from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment }}"
+           echo "Running on server ${{ vars.servername}} "
            sleep 30
            hostname
       - name: my step2
