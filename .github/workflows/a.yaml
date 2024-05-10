@@ -7,35 +7,47 @@ on:
   pull_request:
     branches:
      - main
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
 # Testing our first workflow
-
-env:
+env: 
   name: Baizura
 jobs:
   build: 
     runs-on: ubuntu-latest
     env:
       environment: dev
-      name: Siti
+      lastname: AW
     steps:
       - name: step1
+        env:
+          greetings: GoodMorning
+          name: Siti
         run: |
-          jobs:
+          echo "$greetings from $name $lastname, job1 of workflow1 running in environment $environment"
+          sleep 10
+          hostname
+      - name: my step2
+        run: |
+          echo "$greetings from $name"
+          sleep 10
+      - run: |
+          echo "hello from step3"
+          sleep 10
+      - name: my step4 for testing multiple lines of code execution
+        run: |
+          ls -l
+          pwd
           sudo cat /etc/os-release
           uname -a
           echo "final step4 execution done"
   test: 
-    runs-on: self-hosted
+    runs-on: baizura
     env:
       environment: staging
-      status: open
     steps:
       - name: step1
         run: |
-           echo "hello from $name, job 2 of workflow1, running from environment $environment with status $status"
+           echo "$greetings from $name $lastname, job1 of workflow1 running in environment $environment"
            sleep 30
            hostname
       - name: my step2
