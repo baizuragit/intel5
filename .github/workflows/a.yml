@@ -1,8 +1,3 @@
-d:\services\aoproxy\actions\apfhc.ps1 servername:f24pap423n25 monitor:fab300monitor
-
-utopiahigh0912**((
-
-
 name: continous-build
 on: 
   push:
