@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: step1
         run: |
-          echo "$ {{ vars.GREETINGS }} from {{ vars.NAME }}, job1 of workflow1, running from environment $environment with status $open"
+          echo "${{ vars.GREETINGS }} from ${{ vars.NAME }}, job1 of workflow1, running from environment $environment with status $open"
           sleep 30
           hostname
 
