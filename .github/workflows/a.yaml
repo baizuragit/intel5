@@ -1,0 +1,44 @@
+name: continous-build
+on: 
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+     - main
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+# Testing our first workflow
+
+env:
+  name: Baizura
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    env:
+      environment: dev
+      name: Siti
+    steps:
+      - name: step1
+        run: |
+          jobs:
+          sudo cat /etc/os-release
+          uname -a
+          echo "final step4 execution done"
+  test: 
+    runs-on: self-hosted
+    env:
+      environment: staging
+      status: open
+    steps:
+      - name: step1
+        run: |
+           echo "hello from $name, job 2 of workflow1, running from environment $environment with status $status"
+           sleep 30
+           hostname
+      - name: my step2
+        run: |
+          echo "hello from $name"  
+          sleep 10
