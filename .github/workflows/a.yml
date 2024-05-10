@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: step1
         run: |
-           echo "hello from step1, job 2 of workflow1"
+           echo "hello from step1, job 2 of workflow1 "
            sleep 30
            hostname
       - name: my step2
