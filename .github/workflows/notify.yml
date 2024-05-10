@@ -10,20 +10,7 @@ jobs:
     steps:
       - name: step1
         run: |
-          echo "hello from $name, job1 of workflow1, running from environment $environment with status $open"
+          echo "$ {{ vars.GREETINGS }} from {{ vars.NAME }}, job1 of workflow1, running from environment $environment with status $open"
           sleep 30
           hostname
-      - name: my step2
-        run: |
-          echo "hello from $name"
-          sleep 10
-      - run: |
-          echo "hello from step3"
-          sleep 10
-      - name: my step4 for testing multiple lines of code execution
-        run: |
-          ls -l
-          pwd
-          sudo cat /etc/os-release
-          uname -a
-          echo "final step4 execution done"
+
