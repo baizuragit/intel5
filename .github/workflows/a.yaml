@@ -23,7 +23,7 @@ jobs:
           greetings: GoodMorning
           name: Siti
         run: |
-          echo "$greetings from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment}}"
+          echo "${{ vars.GREETINGS }} from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment}}"
           echo "Running on server ${{ vars.servername}} "
           sleep 10
           hostname
@@ -47,7 +47,7 @@ jobs:
     steps:
       - name: step1
         run: |
-           echo "$greetings from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment }}"
+           echo "${{ vars.GREETINGS }} from $name $lastname, job1 of workflow1 running in environment ${{ vars.environment }}"
            echo "Running on server ${{ vars.servername}} "
            sleep 30
            hostname
