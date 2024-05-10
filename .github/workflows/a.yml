@@ -12,8 +12,10 @@ on:
   workflow_dispatch:
 # Testing our first workflow
 
+env:
+  name: Baizura
 jobs:
-  job1: 
+  build: 
     runs-on: ubuntu-latest
     steps:
       - name: step1
@@ -23,7 +25,7 @@ jobs:
           hostname
       - name: my step2
         run: |
-          echo "hello from baizura"
+          echo "hello from $name"
           sleep 10
       - run: |
           echo "hello from step3"
@@ -45,5 +47,5 @@ jobs:
            hostname
       - name: my step2
         run: |
-          echo "hello from baizura"  
+          echo "hello from $name"  
           sleep 10
