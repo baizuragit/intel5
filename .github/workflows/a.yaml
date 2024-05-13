@@ -19,6 +19,7 @@ jobs:
       lastname: AW
     steps:
       - name: step1
+        if: github.event_name == "push"
         env:
           greetings: GoodMorning
           name: Siti
