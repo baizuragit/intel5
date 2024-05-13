@@ -23,7 +23,7 @@ jobs:
           greetings: GoodMorning
           name: Siti
         run: |
-          echo "${{ vars.GREETINGS }} from $name $lastname, job1 of workflow1 in repository ${{ GITHUB.REPOSITORY }} running in environment ${{ vars.environment}} on ${{ runner.os }}"
+          echo "${{ vars.GREETINGS }} from $name $lastname, job1 of workflow1 in repository ${{ GITHUB.REPOSITORY }} running in environment ${{ vars.environment}} on RUNNER OS ${{ runner.os }}"
           echo "Running on server ${{ vars.servername}} with credentials ${{ secrets.SERVER_PASSWD }} and API KEY ${{ secrets.APIKEY }} "
           sleep 10
           hostname
