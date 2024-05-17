@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: Create user baizura
+      user:
+        name: baizura
+        state: present
+    - name: install a package
+      package:
+        name: telnet
+        state: present
+    - name: copy file to next machine
+      copy:
+        name: ./guifile
+        dest: /tmp/
